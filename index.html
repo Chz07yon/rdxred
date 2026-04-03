@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RDX RED | Creative Studio</title>
+    <meta name="description" content="RDX RED — Premier creative studio for photography, videography and digital art. Studios in Kokkada and Mysuru.">
+    <meta name="theme-color" content="#e50000">
+    <meta property="og:title" content="RDX RED | Creative Studio">
+    <meta property="og:description" content="Capturing moments, creating art.">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Background Logic -->
+        <video id="main-bg-video" autoplay loop muted playsinline>
+            <source src="assets/wave effect.mp4" type="video/mp4">
+        </video>
+        <div id="main-bg-image"></div>
+
+        <!-- Intro Animation Overlay -->
+        <div id="intro-overlay">
+            <video id="intro-video" muted playsinline autoplay>
+                <source src="assets/Intro Video.mp4" type="video/mp4">
+            </video>
+            <div id="intro-skip-hint">Press ENTER to Skip</div>
+        </div>
+
+        <!-- Admin Intro Video Overlay -->
+        <div id="admin-intro-overlay" class="hidden">
+            <video id="admin-intro-video" muted playsinline>
+                <source src="assets/wave effect.mp4" type="video/mp4">
+            </video>
+            <div id="admin-intro-skip-hint">Press ENTER to Skip</div>
+        </div>
+
+        <!-- Logo Video Overlay -->
+        <div id="logo-video-overlay" class="hidden">
+            <video id="logo-video" muted playsinline>
+                <source src="assets/logo vid.mp4" type="video/mp4">
+            </video>
+            <div id="logo-skip-hint">Press ENTER to Skip</div>
+        </div>
+
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="brand">
+                <img src="assets/Red_20251122_224103_0000.png" alt="RDX RED" class="brand-logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                <li><a href="#creations" class="nav-link"><i class="fas fa-camera-retro"></i> <span>Our
+                            Creations</span></a></li>
+                <li><a href="#studio" class="nav-link"><i class="fas fa-map-marker-alt"></i> <span>Studio</span></a>
+                </li>
+                <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> <span>Contact Us</span></a></li>
+                <li><a href="#instructions" class="nav-link"><i class="fas fa-info-circle"></i>
+                        <span>Instructions</span></a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <p style="color:#555; font-size:0.7rem;">&copy; 2025 RDX RED</p>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Top Header -->
+            <header class="top-header" id="main-header">
+                <div class="header-content">
+                    <img src="assets/Logo.png" alt="RDX Logo" class="header-logo">
+                    <div class="header-controls" style="display:flex; gap:15px; align-items:center;">
+                        <button id="mobile-menu-toggle" class="icon-btn mobile-only" aria-label="Toggle Menu">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                        <button class="myspace-btn"><i class="fas fa-user-circle"></i> My Space</button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- SECTION: HOME -->
+            <section id="home" class="page-section active">
+                <div class="hero-overlay"></div> <!-- For cinematic gradient/grain -->
+                <div class="hero-content">
+                    <h1 class="hero-title reveal">RDX RED</h1>
+                    <p class="hero-tagline reveal" style="transition-delay: 0.2s;">
+                        <span>Photography</span> <span class="separator">&bull;</span>
+                        <span>Videography</span> <span class="separator">&bull;</span>
+                        <span>Digital Art</span>
+                    </p>
+                    <p class="hero-founded reveal" style="transition-delay: 0.4s;">EST. 2025</p>
+                    <p class="hero-description reveal" style="transition-delay: 0.6s;">
+                        RDX RED is a premier creative studio and a editing bank specializing in high-end photography,
+                        cinematic videography, and immersive digital art. We blend technical precision with artistic
+                        vision to deliver visual experiences that leave a lasting impact.
+                    </p>
+                    <div class="reveal" style="transition-delay: 0.8s;">
+                        <a href="#creations" class="hero-btn">Explore Our Work</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION: OUR CREATIONS -->
+            <section id="creations" class="page-section">
+                <header class="page-header">
+                    <h2 class="section-title">Our Creations</h2>
+                    <div class="filters reveal">
+                        <button class="filter-btn active" onclick="loadCreations('all', 'all')">All</button>
+                        <button class="filter-btn" onclick="loadCreations('photo', 'all')">Photography</button>
+                        <button class="filter-btn" onclick="loadCreations('video', 'all')">Videography</button>
+                    </div>
+                </header>
+
+                <div class="studio-filter" style="margin-bottom:20px;">
+                    <span style="color:#666; margin-right:10px;">FILTER BY STUDIO:</span>
+                    <button class="filter-btn" onclick="loadCreations('all', 'kokkada')">Kokkada</button>
+                    <button class="filter-btn" onclick="loadCreations('all', 'mysuru')">Mysuru</button>
+                </div>
+
+                <div class="media-grid" id="media-grid-container">
+                    <!-- Javascript will populate this -->
+                </div>
+            </section>
+
+            <!-- SECTION: STUDIO -->
+            <section id="studio" class="page-section">
+                <header class="page-header">
+                    <h2 class="section-title">Our Studios</h2>
+                </header>
+
+                <div class="studios-container">
+                    <!-- Kokkada -->
+                    <div class="studio-card">
+                        <div class="studio-map">
+                            <iframe loading="lazy" allowfullscreen
+                                src="https://maps.google.com/maps?q=12.86503395781084,75.41327344291956&hl=es;z=14&output=embed">
+                            </iframe>
+                        </div>
+                        <div class="studio-details">
+                            <h3>Kokkada (Main Branch)</h3>
+                            <p style="color:#888; margin:10px 0;">12.865033, 75.413273</p>
+                            <span id="status-kokkada" class="status-badge status-open">OPEN</span>
+                        </div>
+                    </div>
+
+                    <!-- Mysuru -->
+                    <div class="studio-card">
+                        <div class="studio-map">
+                            <iframe loading="lazy" allowfullscreen
+                                src="https://maps.google.com/maps?q=12.337992641858309,76.61903412510877&hl=es;z=14&output=embed">
+                            </iframe>
+                        </div>
+                        <div class="studio-details">
+                            <h3>Mysuru (Secondary Branch)</h3>
+                            <p style="color:#888; margin:10px 0;">12.337992, 76.619034</p>
+                            <span id="status-mysuru" class="status-badge status-open">OPEN</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- SECTION: INSTRUCTIONS -->
+            <section id="instructions" class="page-section">
+                <header class="page-header">
+                    <h2 class="section-title">Client Instructions</h2>
+                </header>
+                <div class="instructions-content reveal" style="max-width: 800px; margin: 0 auto; color: #ddd;">
+
+                    <div class="instruction-block" style="margin-bottom: 2rem;">
+                        <h3 style="color: var(--primary-red); margin-bottom: 0.5rem;"><i class="fas fa-search"></i>
+                            Browsing Creations</h3>
+                        <p>Explore our portfolio in the <strong>Our Creations</strong> section. You can filter by:
+                        </p>
+                        <ul style="list-style-type: disc; margin-left: 20px; margin-top: 5px;">
+                            <li><strong>Type:</strong> Photography or Videography</li>
+                            <li><strong>Studio:</strong> See work specific to Kokkada or Mysuru branches</li>
+                        </ul>
+                        <p style="margin-top: 10px;">Click on any image to view it in high resolution or play
+                            videos.
+                        </p>
+                    </div>
+
+                    <div class="instruction-block" style="margin-bottom: 2rem;">
+                        <h3 style="color: var(--primary-red); margin-bottom: 0.5rem;"><i
+                                class="fas fa-map-marked-alt"></i> Checking Studio Status</h3>
+                        <p>Visit the <strong>Studio</strong> page to see our locations on the map. The status badges
+                            (OPEN/CLOSED) are updated in real-time by our admins to let you know if we are currently
+                            available for walk-ins.</p>
+                    </div>
+
+                    <div class="instruction-block" style="margin-bottom: 2rem;">
+                        <h3 style="color: var(--primary-red); margin-bottom: 0.5rem;"><i class="fas fa-paper-plane"></i>
+                            Booking & Inquiries</h3>
+                        <p>Go to <strong>Contact Us</strong> to send a message. Please provide valid details. Our
+                            team
+                            will review your request and reply via email (ddxredx0703@gmail.com). Keeps an eye on
+                            your
+                            inbox!</p>
+                    </div>
+
+                    <div class="instruction-block">
+                        <h3 style="color: var(--primary-red); margin-bottom: 0.5rem;"><i class="fas fa-user-lock"></i>
+                            My Space (Admin)</h3>
+                        <p>The "My Space" area is restricted for RDX RED administrators to manage content and check
+                            messages. Clients do not need to log in.</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SECTION: CONTACT -->
+            <section id="contact" class="page-section">
+                <header class="page-header reveal">
+                    <h2 class="section-title">Contact Us</h2>
+                </header>
+
+                <div class="contact-container">
+                    <div class="contact-info reveal">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope" style="color:var(--primary-red);"></i>
+                            <a href="mailto:ddxredx0703@gmail.com" target="_blank">ddxredx0703@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone" style="color:var(--primary-red);"></i>
+                            <a href="tel:+917676218729">+91 76762 18729</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-instagram" style="color:var(--primary-red);"></i>
+                            <a href="https://instagram.com/rdx._.red" target="_blank">@rdx._.red</a>
+                        </div>
+
+                        <div class="social-links" style="margin-top:3rem;">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="contact-form-container reveal">
+                    <form id="contact-form" class="contact-form glass-card" style="padding: 2rem;">
+                        <h3 style="margin-bottom:1.5rem; color:var(--primary-red); text-align:center;">Send a Message
+                        </h3>
+
+                        <div class="form-grid-row"
+                            style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                            <div class="form-group input-with-icon">
+                                <i class="fas fa-user input-icon"></i>
+                                <input type="text" id="c-name" class="premium-input" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group input-with-icon">
+                                <i class="fas fa-envelope input-icon"></i>
+                                <input type="email" id="c-email" class="premium-input" placeholder="Your Email"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="form-group input-with-icon" style="margin-bottom: 20px;">
+                            <i class="fas fa-comment-alt input-icon" style="top: 15px;"></i>
+                            <textarea id="c-msg" class="premium-input" rows="5" placeholder="Your Message"
+                                required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary full-width" style="width:100%;">SEND MESSAGE</button>
+                    </form>
+                </div>
+    </div>
+    </section>
+
+    <!-- SECTION: MY SPACE (Admin) -->
+    <section id="myspace" class="page-section">
+        <div class="login-container" id="login-form">
+            <h2 style="margin-bottom:2rem;">My Space Login</h2>
+            <div class="login-form">
+                <input type="text" id="u-email" placeholder="User ID / Email">
+                <input type="password" id="u-pass" placeholder="Password">
+                <button id="btn-login" class="btn-primary">ENTER</button>
+            </div>
+        </div>
+
+        <div class="admin-dashboard" id="admin-dashboard">
+            <header class="page-header">
+                <h2 class="section-title">Admin Dashboard</h2>
+                <button id="btn-logout"
+                    style="background:transparent; border:1px solid #333; color:white; padding:5px 10px;">LOGOUT</button>
+            </header>
+
+            <!-- Admin Navigation Tabs -->
+            <div class="admin-tabs">
+                <button class="admin-tab active" onclick="switchAdminTab('overview')">Overview</button>
+                <button class="admin-tab" onclick="switchAdminTab('upload')">Upload</button>
+                <button class="admin-tab" onclick="switchAdminTab('library')">Media Library</button>
+                <button class="admin-tab" onclick="switchAdminTab('messages')">Messages</button>
+                <button class="admin-tab" id="tab-problems" style="display:none;"
+                    onclick="switchAdminTab('problems')">Problems</button>
+            </div>
+
+            <div class="admin-content">
+                <!-- VIEW: OVERVIEW -->
+                <div id="admin-view-overview" class="admin-view active">
+                    <div class="admin-grid">
+                        <section class="admin-card">
+                            <h3>Studio Status</h3>
+                            <div class="status-controls">
+                                <button onclick="toggleStudio('kokkada')" class="btn-primary">Toggle Kokkada</button>
+                                <button onclick="toggleStudio('mysuru')" class="btn-primary">Toggle Mysuru</button>
+                            </div>
+                        </section>
+                        <section class="admin-card">
+                            <h3>Quick Stats</h3>
+                            <div class="stat-box">
+                                <span class="stat-number" id="stat-count">0</span>
+                                <span class="stat-label">Total Media Items</span>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- VIEW: UPLOAD -->
+                <div id="admin-view-upload" class="admin-view">
+                    <section class="admin-card upload-section">
+                        <h3>Add New Media</h3>
+                        <div class="drag-drop-zone" id="drag-drop-zone">
+                            <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                            <p>Drag & Drop files here or click to browse</p>
+                            <input id="inp-file" type="file" accept="image/*,video/*" multiple hidden>
+                        </div>
+                        <form id="admin-add-media" style="margin-top:20px;">
+                            <div class="form-grid">
+                                <!-- Title -->
+                                <input id="inp-title" class="form-control" type="text" placeholder="Title" required>
+
+                                <!-- Type -->
+                                <select id="inp-type" class="form-control">
+                                    <option value="" disabled selected>Select Type</option>
+                                    <option value="photo">Photo</option>
+                                    <option value="video">Video</option>
+                                </select>
+
+                                <!-- Category -->
+                                <select id="inp-category" class="form-control">
+                                    <option value="" disabled selected>Select Category</option>
+                                    <option value="Wedding Shoot">Wedding Shoot</option>
+                                    <option value="Travel Shoot">Travel Shoot</option>
+                                    <option value="Fashion">Fashion</option>
+                                    <option value="Event">Event</option>
+                                    <option value="other">Other...</option>
+                                </select>
+
+                                <!-- Studio -->
+                                <select id="inp-studio" class="form-control">
+                                    <option value="" disabled selected>Select Studio</option>
+                                    <option value="Kokkada">Kokkada</option>
+                                    <option value="Mysuru">Mysuru</option>
+                                </select>
+                            </div>
+
+                            <!-- Custom Category Input -->
+                            <input id="inp-custom-category" class="form-control hidden-input" type="text"
+                                placeholder="Enter Custom Category Name">
+                            <div class="form-row" style="margin-top: 15px;">
+                                <label style="display:block; margin-bottom:5px; color:#ccc; font-size:0.9rem;">Cover
+                                    Image (Optional):</label>
+                                <input id="inp-cover" type="file" accept="image/*"
+                                    style="width:100%; background:#222; border:1px solid #333; padding:8px; color:#fff;">
+                            </div>
+                            <button type="submit" class="btn-primary full-width">UPLOAD MEDIA</button>
+                        </form>
+                    </section>
+                </div>
+
+                <!-- VIEW: LIBRARY -->
+                <div id="admin-view-library" class="admin-view">
+                    <section class="admin-card">
+                        <div class="library-header"
+                            style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+                            <h3>Media Library</h3>
+                            <div class="storage-widget">
+                                <span id="storage-text" style="font-size:0.8rem; color:var(--text-gray);">0% Used</span>
+                                <div class="storage-bar-bg">
+                                    <div id="storage-bar-fill" class="storage-bar-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="library-grid" id="admin-library-grid">
+                            <!-- Populated by JS -->
+                        </div>
+                    </section>
+                </div>
+
+                <!-- VIEW: MESSAGES -->
+                <div id="admin-view-messages" class="admin-view">
+                    <section class="admin-card messages-section">
+                        <h3>Client Messages</h3>
+                        <div id="admin-chat" class="chat-container">
+                            <!-- Messages will appear here -->
+                        </div>
+                    </section>
+                </div>
+
+                <!-- VIEW: PROBLEMS (Test Admin Only) -->
+                <div id="admin-view-problems" class="admin-view">
+                    <section class="admin-card">
+                        <h3 style="color: var(--primary-red);">Current Website Problems</h3>
+                        <div class="problem-list" style="margin-top: 20px;">
+                            <div class="problem-item"
+                                style="background: rgba(255, 255, 255, 0.05); padding: 15px; margin-bottom: 10px; border-left: 3px solid var(--primary-red);">
+                                <h4><i class="fas fa-bug" style="margin-right: 10px;"></i>Login Session</h4>
+                                <p style="color: #ccc; font-size: 0.9rem; margin-top: 5px;">Admin session does not
+                                    persist
+                                    on refresh. Need to implement localStorage or cookie-based session management.</p>
+                            </div>
+                            <div class="problem-item"
+                                style="background: rgba(255, 255, 255, 0.05); padding: 15px; margin-bottom: 10px; border-left: 3px solid var(--primary-red);">
+                                <h4><i class="fas fa-mobile-alt" style="margin-right: 10px;"></i>Mobile Sidebar</h4>
+                                <p style="color: #ccc; font-size: 0.9rem; margin-top: 5px;">Sidebar transitions can be
+                                    janky on older mobile devices.</p>
+                            </div>
+                            <div class="problem-item"
+                                style="background: rgba(255, 255, 255, 0.05); padding: 15px; margin-bottom: 10px; border-left: 3px solid var(--primary-red);">
+                                <h4><i class="fas fa-tachometer-alt" style="margin-right: 10px;"></i>Performance</h4>
+                                <p style="color: #ccc; font-size: 0.9rem; margin-top: 5px;">Initial load time is high
+                                    due
+                                    to unoptimized high-res assets in the 'Creations' mock data.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+
+
+    <!-- Lightbox Overlay -->
+    <div id="lightbox" class="lightbox-overlay">
+        <span class="close-btn" onclick="closeLightbox()">&times;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+            <video id="lightbox-video" controls
+                style="display:none; max-width:100%; max-height:80vh; border:2px solid var(--primary-red); box-shadow: 0 0 20px rgba(229, 9, 20, 0.5);"></video>
+            <div id="lightbox-caption"></div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Application Logic -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
